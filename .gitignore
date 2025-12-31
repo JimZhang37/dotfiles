@@ -1,0 +1,21 @@
+# Neovim runtime / cache
+**/.lazy/
+**/.local/
+**/.cache/
+**/.state/
+
+# Neovim generated files
+**/lazy-lock.json
+**/plugin/packer_compiled.lua
+
+# tmux runtime data
+**/.tmux/resurrect/
+**/.tmux/continuum/
+
+# OS / editor junk
+.DS_Store
+*.swp
+*.swo
+*.bak
+*~
+
