@@ -7,8 +7,8 @@ echo "--- Update Triggered $(date +%H:%M:%S) ---" >"$DEBUG_FILE"
 # 1. Fetch only the workspaces we care about
 # List 1: All visible workspaces (even if empty)
 # List 2: All non-empty workspaces (even if not visible)
-DATA_VISIBLE=$(aerospace list-workspaces --monitor all --visible --format "%{workspace} %{monitor-id} %{workspace-is-visible} %{workspace-is-focused}")
-DATA_NON_EMPTY=$(aerospace list-workspaces --monitor all --empty no --format "%{workspace} %{monitor-id} %{workspace-is-visible} %{workspace-is-focused}")
+DATA_VISIBLE=$(aerospace list-workspaces --monitor all --visible --format "%{workspace} %{monitor-appkit-nsscreen-screens-id} %{workspace-is-visible} %{workspace-is-focused}")
+DATA_NON_EMPTY=$(aerospace list-workspaces --monitor all --empty no --format "%{workspace} %{monitor-appkit-nsscreen-screens-id} %{workspace-is-visible} %{workspace-is-focused}")
 
 # Combine them and remove duplicates
 COMBINED_DATA=$(echo -e "$DATA_VISIBLE\n$DATA_NON_EMPTY" | sort -u)
