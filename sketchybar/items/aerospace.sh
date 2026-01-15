@@ -9,8 +9,8 @@ sketchybar --add event aerospace_workspace_change
 ALL_WORKSPACES=$(aerospace list-workspaces --all --format "%{workspace}")
 
 for sid in $ALL_WORKSPACES; do
-  sketchybar --add item space."$sid" left \
-    --set space."$sid" \
+  sketchybar --add item space_left."$sid" left \
+    --set space_left."$sid" \
     label="$sid" \
     drawing=off \
     label.padding_left=8 \
@@ -28,6 +28,19 @@ sketchybar --add item monitor_divider left \
   label.font="JetBrainsMono Nerd Font:Bold:16.0" \
   label.padding_left=15 \
   label.padding_right=15
+
+for sid in $ALL_WORKSPACES; do
+  sketchybar --add item space_right."$sid" left \
+    --set space_right."$sid" \
+    label="$sid" \
+    drawing=off \
+    label.padding_left=8 \
+    label.padding_right=8 \
+    background.color=0x44ffffff \
+    background.corner_radius=5 \
+    background.drawing=off \
+    click_script="aerospace workspace $sid"
+done
 
 # --- 4. The Controller ---
 sketchybar --add item aerospace_controller center \
